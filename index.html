@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</head>
+
+<body style="background-color:azure ;background-size: contain;">
+    <div style="text-align: center;color: rgb(27, 39, 210);">
+<h3>ETHIOPIAN TRADITIONAL ASSOSATION</h3>
+     <h3 >EQUB</h3>
+    </div>
+    <div style="color:rgb(80, 37, 199)" class="container">
+        <div class="row">
+            <div class="col-sm-6 mt-5"  style="background-color:rosybrown; background-image: url(x.jpg);background-size:  cover;image-resolution: 300pi;">
+            <div class="col-sm-8 ">
+                <div class="mb-3">
+                    <h3>Enter your information</h3>
+                    <label for="usernameInput" class="form-label">FullName</label>
+                
+                    <input type="username" class="form-control" id="usernameInput" placeholder="username">
+                </div>
+            </div>
+                <div class="col-md-8">
+                    <div class="mb-3">
+        
+                        <label for="amountInput" class="form-label">Amtofmoney</label>
+                        
+                        <input type="selected" class="form-control" id="amountInput" placeholder="1******8">
+
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="mb-5">
+
+                        <button type="button" id="submitBtn" class="btn btn-outline-primary">click</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-sm-6 mt-5" style="background-color:whitesmoke;background-image: url(w.jpg);background-size: cover;" id="resultDiv" class="form-control">
+                <h3>List of the members</h3>
+                <div class="mb-3">
+    
+                </div>
+            </div>
+
+        </div>
+        <div class="mb-3 mt-3"style="text-align: center" >
+            
+        <button type="button" id="randomBtn" class="btn btn-outline-primary" style="background-color: azure;" >Pick</button>
+        <h2 style="color: rgb(52, 25, 190);">Congratulation!</h2>
+    </div>
+        <div class= " mt-1" style=" text-align:center;color: rgb(211, 186, 82); background-color: aliceblue;" id="11">
+            <div class="">
+
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        const submitBtn = document.getElementById('submitBtn')
+        submitBtn.addEventListener('click', getElement)
+
+        const usernames = [];
+        const amounts = [];
+        
+        function getElement() {
+            
+            const username = document.getElementById("usernameInput").value;
+            const amount = document.getElementById("amountInput").value;
+        
+            usernames.push(username);
+            amounts.push(amount);
+        
+            
+            let h1_element = document.createElement('h1')
+            h1_element.style.fontSize = '24px'
+            h1_element.textContent = `Username: ${username}`
+            let h11_element = document.createElement('h1')
+            h11_element.style.fontSize = '24px'
+            h11_element.textContent = `AmntofMoney: ${amount}`
+            let parent_div = document.getElementById("resultDiv")
+            parent_div.appendChild(h1_element)
+            parent_div.appendChild(h11_element)
+            
+        }
+        let randomBtn= document.getElementById('randomBtn')
+randomBtn.addEventListener('click', getElements)
+
+function getElements() {
+  let num = Math.floor(Math.random() * usernames.length);
+  let randomElement = usernames[num];
+
+  let sum = 0;
+  for (let i = 0; i < amounts.length; i++) {
+    sum += parseInt(amounts[i]);
+  }
+  
+
+  document.getElementById("11").innerHTML = randomElement,sum;
+}
+    </script>
+</body>
+
+</html>
